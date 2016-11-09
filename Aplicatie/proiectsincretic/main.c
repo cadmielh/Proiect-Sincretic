@@ -14,7 +14,8 @@ int main(void)
 {	
 	
 	PWM_init();
-	timer_init();
+	timer1_init();
+	timer2_init();
 	sei();
     /* Replace with your application code */
     while (1) 

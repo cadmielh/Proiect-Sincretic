@@ -7,8 +7,10 @@
 
 #include "timer_interrupt.h"
 
+int t=0;
 
-void timer_init()
+
+void timer1_init()
 {
 	//TIMER 1 (16 bit)    -    normal mode
 	//prescaler 1024
@@ -23,11 +25,30 @@ void timer_init()
 }
 
 
-ISR	(TIMER1_COMPA_vect)
+void timer2_init()
 {
-	if((PORTD&0b10000000) != 0b10000000)
-		PORTD|=(1<<PIND7);
-		
-	else
-		PORTD&=~(1<<PIND7);
+	//TCNT2 = 3036;
+	TCCR2B|=(1<<CS22)|(1<<CS21)|(1<<CS20); //1024 prescaler
+	//enabling overflow interrupt
+	TIMSK2|=(1<<TOIE2);
+
+}
+
+
+
+
+ISR(TIMER1_COMPA_vect)
+{
+	//PORTD ^= ( 1 << PIND7 );
+}
+
+
+ISR	(TIMER2_OVF_vect)
+{
+	t++;
+	if(t==61)
+	{
+		PORTD ^= ( 1 << PIND7 );
+		t=0;
+	}
 }

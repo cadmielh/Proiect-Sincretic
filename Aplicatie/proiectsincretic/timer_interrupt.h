@@ -11,7 +11,8 @@
 #include "pwm.h"
 #include<avr/interrupt.h>
 
-void timer_init(); 
+void timer1_init(); 
+void timer2_init(); 
 
 
 
