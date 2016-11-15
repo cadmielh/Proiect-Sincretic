@@ -1,2 +1,2 @@
 # Proiect-Sincretic
-Aici vor fii depozitate fișierele întregului proiect
+Aici vor fi depozitate fișierele întregului proiect
