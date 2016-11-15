@@ -37,6 +37,7 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../serial.c \
 ../main.c \
 ../pwm.c \
 ../timer_interrupt.c
@@ -49,21 +50,25 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+serial.o \
 main.o \
 pwm.o \
 timer_interrupt.o
 
 OBJS_AS_ARGS +=  \
+serial.o \
 main.o \
 pwm.o \
 timer_interrupt.o
 
 C_DEPS +=  \
+serial.d \
 main.d \
 pwm.d \
 timer_interrupt.d
 
 C_DEPS_AS_ARGS +=  \
+serial.d \
 main.d \
 pwm.d \
 timer_interrupt.d
@@ -82,6 +87,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
