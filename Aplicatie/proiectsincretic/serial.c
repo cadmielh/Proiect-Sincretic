@@ -13,7 +13,7 @@ void USART_Init( unsigned int ubrr)
 	/*Set baud rate */
 	UBRR0H = (unsigned char)(ubrr>>8);
 	UBRR0L = (unsigned char)ubrr;
-	/*Enable receiver and transmitter */
+	/*Enable receiver, transmitter and receiver interrupt  */
 	UCSR0B = (1<<RXEN0)|(1<<TXEN0)|(1<<RXCIE0);
 	/* Set frame format: 8data, 2stop bit */
 	UCSR0C = (1<<USBS0)|(1<<UCSZ01)|(1<<UCSZ00);
@@ -56,13 +56,16 @@ void sending_string(unsigned char* str)
 
 ISR (USART_RX_vect)
 {
-	PORTB|= 1<<PINB4;
-	/*if(UDR0=='a')
+	//unsigned char receivedByte;
+	//receivedByte = UDR0; // Fetch the received byte value into the variable "ByteReceived"
+	//UDR0 = receivedByte; // Echo back the received byte back to the computer
+unsigned char ch = UDR0;
+	if(ch=='a')
 		{
 			PORTB|= 1<<PINB4;
 		}
-	else if(UDR0=='s')
+	else if(ch=='s')
 		{
 			PORTB &= ~(1<<PINB4);
-		}*/
+		}
 }

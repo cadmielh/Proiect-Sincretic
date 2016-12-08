@@ -7,8 +7,10 @@
 
 
 #include "pwm.h"
-#include "timer_interrupt.h"
+#include "led_blink.h"
 #include "serial.h"
+#include "adc.h"
+#include "display_button.h"
 
 
 int main(void)
@@ -18,21 +20,14 @@ int main(void)
 	timer1_init();
 	timer2_init();
 	USART_Init(MYUBRR);
-	
-	unsigned char str[]="Hello World!";
-	int once=0;
+	adc_init();
+	display_init();
+	pushbutton_init();
 	
 	sei();
-    
-	/* Replace with your application code */
+	
     while (1) 
     {
-		PWM_fadein_fadeout();
-		if(once==0)
-		{
-			sending_string(str);
-			once=1;
-		}
 		
     }
 }

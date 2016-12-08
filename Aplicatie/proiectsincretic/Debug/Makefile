@@ -37,10 +37,12 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../display_button.c \
+../adc.c \
 ../serial.c \
 ../main.c \
 ../pwm.c \
-../timer_interrupt.c
+../led_blink.c
 
 
 PREPROCESSING_SRCS += 
@@ -50,28 +52,36 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+display_button.o \
+adc.o \
 serial.o \
 main.o \
 pwm.o \
-timer_interrupt.o
+led_blink.o
 
 OBJS_AS_ARGS +=  \
+display_button.o \
+adc.o \
 serial.o \
 main.o \
 pwm.o \
-timer_interrupt.o
+led_blink.o
 
 C_DEPS +=  \
+display_button.d \
+adc.d \
 serial.d \
 main.d \
 pwm.d \
-timer_interrupt.d
+led_blink.d
 
 C_DEPS_AS_ARGS +=  \
+display_button.d \
+adc.d \
 serial.d \
 main.d \
 pwm.d \
-timer_interrupt.d
+led_blink.d
 
 OUTPUT_FILE_PATH +=proiectsincretic.elf
 
@@ -87,6 +97,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

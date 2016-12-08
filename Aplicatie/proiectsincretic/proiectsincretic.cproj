@@ -118,6 +118,18 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="display_button.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="display_button.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="adc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="adc.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="serial.c">
       <SubType>compile</SubType>
     </Compile>
@@ -130,10 +142,10 @@
     <Compile Include="pwm.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="timer_interrupt.c">
+    <Compile Include="led_blink.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="timer_interrupt.h">
+    <Compile Include="led_blink.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="serial.h">

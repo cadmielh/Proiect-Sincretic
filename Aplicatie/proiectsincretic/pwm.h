@@ -11,11 +11,10 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
+#include<avr/interrupt.h>
 
 
 void PWM_init();
-void PWM_fadein_fadeout();
-
-int i;
+void timer2_init(); 
 
 #endif
