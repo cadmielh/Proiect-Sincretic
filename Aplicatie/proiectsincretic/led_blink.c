@@ -27,7 +27,9 @@ void timer1_init()
 
 ISR(TIMER1_COMPA_vect)
 {
-
+	sending_temperature(temperatura);
 	PORTD ^= ( 1 << PIND7 );
+	
+	
 }
 

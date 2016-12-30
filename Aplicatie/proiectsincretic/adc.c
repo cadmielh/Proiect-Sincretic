@@ -8,6 +8,7 @@
 
 float medie=0;
 
+
 void adc_init()
 {
 	//setting Port A as input
@@ -51,8 +52,10 @@ ISR(ADC_vect)
 	float mv = (val/1024.0)*5000;
 	float cel = mv/10;
 	
-	sending_temperature(cel);
-	if(cel>=34.5)
+	temperatura = cel;
+	//sending_temperature(cel);
+		
+	if(temperatura>=34.5)
 		PORTB|=(1<<PINB5);
 	else
 		PORTB&=~(1<<PINB5);

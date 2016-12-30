@@ -15,6 +15,6 @@
 
 
 void adc_init();
-
+float temperatura;
 
 #endif

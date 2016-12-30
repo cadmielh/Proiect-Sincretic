@@ -6,7 +6,7 @@
  */ 
 #include "display_button.h"
 
-int push=-1;
+int push=1;
 
 void display_init()
 {
@@ -21,9 +21,9 @@ void pushbutton_init()
 	//setting pushbutton pin as input
 	DDRD&=~(1<<PIND2);
 	// turn On the Pull-up
-	PORTD |= (1 << PORTD2);
-	//interrupt on rising edge
-	EICRA|=(1<<ISC01)|(1<<ISC00);
+	PORTD |= (1 << PIND2);
+	//interrupt on falling edge
+	EICRA|=(1<<ISC01);
 	//enabling external INT0 
 	EIMSK|=(1<<INT0);
 	//selecting PIND2 as interrupt pin
@@ -94,9 +94,10 @@ void display_digit(int digit)
 
 ISR (INT0_vect)
 {
-	push++;
-	display_digit(push);
 	
-	if(push>=9)
-		push=-1;
+	display_digit(push);
+	push++;
+	
+	if(push>=10)
+		push=0;
 }

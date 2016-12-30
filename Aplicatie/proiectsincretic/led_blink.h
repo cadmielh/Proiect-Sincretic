@@ -9,9 +9,11 @@
 #define LED_BLINK_H
 
 #include "pwm.h"
+#include "adc.h"
 #include<avr/interrupt.h>
 
 void timer1_init(); 
+
 
 
 
