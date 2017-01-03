@@ -6,8 +6,9 @@
  */ 
 
 #include "led_blink.h"
+#include "display_button.h"
 
-
+int sec=0;
 
 void timer1_init()
 {
@@ -30,6 +31,18 @@ ISR(TIMER1_COMPA_vect)
 	sending_temperature(temperatura);
 	PORTD ^= ( 1 << PIND7 );
 	
+	/*if((PORTD & PIND2)!=0)
+		sec++;
+	else
+		sec=0;
+	
+		
+	if(sec>=3)
+		{
+			display_digit(0);
+			sec=0;
+		}
+	*/
 	
 }
 

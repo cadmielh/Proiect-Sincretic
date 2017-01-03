@@ -10,11 +10,13 @@
 #include <avr/io.h>
 #include <avr/eeprom.h>
 #include<avr/interrupt.h>
+//#include "eeprom.h"
 
 void display_init();
 void display_digit(int digit);
 void pushbutton_init();
 
+int digit_value;
 
 
 #endif

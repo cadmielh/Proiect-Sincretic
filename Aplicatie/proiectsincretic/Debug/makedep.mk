@@ -6,6 +6,8 @@ display_button.c
 
 adc.c
 
+eeprom.c
+
 serial.c
 
 main.c

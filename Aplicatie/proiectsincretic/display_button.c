@@ -6,6 +6,7 @@
  */ 
 #include "display_button.h"
 
+
 int push=1;
 
 void display_init()
@@ -95,9 +96,16 @@ void display_digit(int digit)
 ISR (INT0_vect)
 {
 	
-	display_digit(push);
-	push++;
 	
-	if(push>=10)
-		push=0;
+	//int nr = memory_read(200);
+	
+	
+	display_digit(digit_value);
+	EEPROM_write(200,digit_value);
+	digit_value++;
+	
+	
+	
+	if(digit_value>=10)
+		digit_value=0;
 }

@@ -39,6 +39,7 @@ SUBDIRS :=
 C_SRCS +=  \
 ../display_button.c \
 ../adc.c \
+../eeprom.c \
 ../serial.c \
 ../main.c \
 ../pwm.c \
@@ -54,6 +55,7 @@ ASM_SRCS +=
 OBJS +=  \
 display_button.o \
 adc.o \
+eeprom.o \
 serial.o \
 main.o \
 pwm.o \
@@ -62,6 +64,7 @@ led_blink.o
 OBJS_AS_ARGS +=  \
 display_button.o \
 adc.o \
+eeprom.o \
 serial.o \
 main.o \
 pwm.o \
@@ -70,6 +73,7 @@ led_blink.o
 C_DEPS +=  \
 display_button.d \
 adc.d \
+eeprom.d \
 serial.d \
 main.d \
 pwm.d \
@@ -78,6 +82,7 @@ led_blink.d
 C_DEPS_AS_ARGS +=  \
 display_button.d \
 adc.d \
+eeprom.d \
 serial.d \
 main.d \
 pwm.d \
@@ -97,6 +102,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

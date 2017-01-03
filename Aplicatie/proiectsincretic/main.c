@@ -11,37 +11,7 @@
 #include "serial.h"
 #include "adc.h"
 #include "display_button.h"
-
-
-void EEPROM_write(uint16_t uiAddress, uint8_t ucData)
-{
-	/* Wait for completion of previous write */
-	while(EECR & (1<<EEPE))
-	;
-	/* Set up address and Data Registers */
-	EEAR = uiAddress;
-	EEDR = ucData;
-	/* Write logical one to EEMPE */
-	EECR |= (1<<EEMPE);
-	/* Start eeprom write by setting EEPE */
-	EECR |= (1<<EEPE);
-}
-
-uint8_t EEPROM_read(uint16_t uiAddress)
-{
-	/* Wait for completion of previous write */
-	while(EECR & (1<<EEPE))
-	;
-	/* Set up address register */
-	EEAR = uiAddress;
-	/* Start eeprom read by writing EERE */
-	EECR |= (1<<EERE);
-	/* Return data from Data Register */
-	return EEDR;
-}
-
-
-
+#include "eeprom.h"
 
 
 int main(void)
@@ -55,9 +25,13 @@ int main(void)
 	display_init();
 	pushbutton_init();
 	
+	
+	digit_value = EEPROM_read(200);
+	display_digit(digit_value);
+	digit_value++;
+	
 	sei();
 	
-	display_digit(0);
     
 	while (1) 
     {
